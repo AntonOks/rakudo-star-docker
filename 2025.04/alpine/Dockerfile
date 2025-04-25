@@ -12,7 +12,6 @@ RUN buildDeps=' \
         libc-dev \
         make \
         perl \
-        git \
     ' \
     \
     url="https://rakudo.org/dl/star/rakudo-star-${rakudo_version}.tar.gz" \
@@ -23,7 +22,7 @@ RUN buildDeps=' \
     && export GNUPGHOME="${tmpdir}/gnupg" \
     && mkdir $GNUPGHOME \
     && apk add --no-cache --virtual .build-deps $buildDeps \
-    && apk add --no-cache readline \
+    && apk add --no-cache readline git \
     && mkdir ${tmpdir}/rakudo \
     \
     && wget ${url}.asc -O ${tmpdir}/rakudo.tar.gz.asc \
